@@ -1,235 +1,129 @@
-# 🪙 Gold Price Prediction - ML Web Application
+# Gold Price Prediction - ML Web Application
 
-An end-to-end machine learning application that predicts gold prices using economic indicators, technical analysis, and multiple regression models. Features an interactive React frontend with Flask backend serving trained ML models.
+An end-to-end machine learning project for gold price forecasting with a Flask backend and React frontend.
 
-## 📋 Project Overview
+## Project Overview
 
-This is a **student-level machine learning project** that demonstrates:
-- ✅ Complete ML pipeline: Data → Features → Models → Predictions
-- ✅ Feature engineering with ~80 engineered features
-- ✅ Three regression models: Linear Regression, Random Forest, XGBoost
-- ✅ REST API backend with model serving
-- ✅ Interactive React frontend with data visualizations
-- ✅ Model performance: **R² ≈ 0.95-0.97**, **RMSE ≈ $20-25/oz**
+This project demonstrates:
+- Data loading and preprocessing for multi-asset financial data
+- Feature engineering with technical and time-series features
+- Training and comparison of 3 regression models
+- Serving predictions and metrics through a REST API
+- Interactive visualization in a frontend dashboard
 
-## 🎯 Key Features
+## Latest Results (April 11, 2026)
 
-### Backend (Python/Flask)
-- Data loading and preprocessing from CSV
-- Feature engineering with technical indicators (SMA, EMA, RSI, MACD, Bollinger Bands)
-- Cross-asset features (ratios, correlations)
-- Lag features and rolling statistics
-- Time-based features with cyclical encoding
-- Three trained ML models saved as pickle files
-- REST API endpoints for predictions and analytics
-- Model evaluation metrics (R², RMSE, MAE, MAPE)
+Source artifacts:
+- models/saved_models/metrics_20260411_105936.json
+- results/forecasts/analysis_summary.json
+- results/forecasts/predictions_2025_best_model.csv
+- results/forecasts/predictions_2025_all_models.csv
 
-### Frontend (React)
-- **Dashboard**: Model comparison, dataset statistics, key insights
-- **Predictions**: Interactive time series chart, error analysis
-- **Feature Analysis**: Feature importance, engineering explanations
-- **Performance**: Model progression, error distributions, scatter plots
-- **About**: Methodology, model explanations, results summary
-- Dark mode toggle
-- Responsive mobile-friendly design
-- Professional financial UI/UX
+### Model Test Metrics
 
-## 🚀 Quick Start
+| Model | Test R2 | RMSE | MAE | MAPE |
+|---|---:|---:|---:|---:|
+| Linear Regression | 0.999952 | 0.1554 | 0.1163 | 0.0617% |
+| Random Forest | 0.436571 | 16.8328 | 7.7581 | 3.4706% |
+| XGBoost | 0.363863 | 17.8860 | 8.4647 | 3.8051% |
+
+Best model from latest run: Linear Regression
+
+### 2025 Forecast Summary
+
+- Forecast horizon: 365 daily points
+- Best model used for final forecast: linear_regression
+- Predicted USD range: 2923.93 to 3501.61
+- Predicted USD mean: 3458.32
+- Min predicted day: 2025-01-01
+- Max predicted day: 2025-01-07
+- Annual fit mean percent error: 0.2824%
+- Annual fit max percent error: 2.1242%
+
+Note on scale:
+The underlying target series appears to be a derived/scaled instrument rather than direct spot gold USD/oz. The forecast pipeline includes conversion to a USD scale and writes both forms in output CSV files.
+
+## Quick Start
 
 ### Prerequisites
-- Python 3.10+ (3.12 recommended)
-- Node.js 16+ and npm
-- WSL2 (Windows users) with bash shell
+- Python 3.10+
+- Node.js 16+
 
-### 1. Run Complete Setup
+### 1. Setup
+
+Run the full setup:
+
 ```bash
 bash setup.sh
 ```
 
-### 2. Copy Data File
-```bash
-cp /path/to/financial_regression.csv backend/data/raw/
-```
+### 2. Start the App
 
-### 3. Start the Application
+Single command:
 
-**Option A: Automatic (both in one terminal)**
 ```bash
 bash run.sh
 ```
 
-**Option B: Manual (separate terminals)**
+Or start manually.
 
-Terminal 1:
+Backend:
+
 ```bash
-cd backend && python app.py
+cd backend
+python app.py
 ```
 
-Terminal 2:
+Frontend:
+
 ```bash
-cd frontend && npm run dev
+cd frontend
+npm run dev
 ```
 
-### 4. Open in Browser
+### 3. Open in Browser
 - Frontend: http://localhost:3000
 - API: http://localhost:5000
 
-## 📈 Model Performance
+## API Endpoints
 
-| Model | Test R² | RMSE | MAE |
-|-------|---------|------|-----|
-| Linear Regression | ~0.82 | $45/oz | Baseline |
-| Random Forest | ~0.90 | $32/oz | Good |
-| **XGBoost** | **~0.95** | **$22/oz** | **Best ⭐** |
+- GET /api/models
+- GET /api/predictions
+- GET /api/feature-importance
+- GET /api/metrics
+- GET /api/data-stats
 
-## 📊 Features
+## Project Structure
 
-- **Technical Indicators** (15): SMA, EMA, RSI, MACD, Bollinger Bands
-- **Cross-Asset** (8): Ratios, Correlations
-- **Lag Features** (15): Price lags 1-7 days
-- **Rolling Stats** (20): Mean, std dev, min, max
-- **Time Features** (10): Month, Quarter, Day of Week, cyclical encoding
-- **Total**: ~80 engineered features from 47 raw features
-
-## 📁 Project Structure
-
-```
+```text
 gold-price-prediction/
-├── backend/                    # Python/Flask backend
-│   ├── app.py                 # REST API
-│   ├── data_loader.py         # Data preprocessing
-│   ├── feature_engineering.py # Feature creation
-│   ├── model_trainer.py       # ML models
-│   ├── models/saved_models/   # Trained model files
-│   └── data/raw/              # financial_regression.csv
-├── frontend/                  # React frontend
-│   ├── src/components/        # 5 pages
-│   ├── src/styles/           # CSS files
-│   └── package.json          # Dependencies
-├── setup.sh                   # Install everything
-├── run.sh                     # Start both servers
-└── README.md                  # Documentation
+|- backend/
+|  |- app.py
+|  |- data_loader.py
+|  |- feature_engineering.py
+|  |- model_trainer.py
+|  |- data/raw/
+|  \- models/saved_models/
+|- frontend/
+|  |- src/
+|  |- public/
+|  \- package.json
+|- data/
+|- models/
+|- results/
+|- scripts/
+|- setup.sh
+|- run.sh
+\- README.md
 ```
 
-## 🧠 Models Explained
+## Troubleshooting
 
-### Linear Regression
-Baseline model assuming linear relationships. Fast but limited accuracy (R² ~0.82).
+- Backend not running: start backend/app.py first
+- Frontend cannot call API: verify backend on port 5000
+- Missing Python packages: pip install -r requirements.txt
+- Missing Node packages: cd frontend && npm install
 
-### Random Forest
-Ensemble of trees capturing non-linear patterns. Good accuracy (R² ~0.90).
+## Current Status
 
-### XGBoost ⭐ (Best)
-Gradient boosting with best performance (R² ~0.95). Captures feature interactions.
-
-## 🎨 Frontend Pages
-
-1. **Dashboard**: Model comparison, statistics
-2. **Predictions**: Time series chart, error analysis
-3. **Feature Analysis**: Feature importance, explanations
-4. **Performance**: Model progression, error distributions
-5. **About**: Methodology, insights, results
-
-## 🔧 API Endpoints
-
-```
-GET  /api/models               # List models
-GET  /api/predictions          # Get predictions
-GET  /api/feature-importance   # Top features
-GET  /api/metrics              # Model metrics
-GET  /api/data-stats          # Dataset info
-```
-
-## 📚 Key Insights
-
-- **Silver**: Highly correlated (0.85+), early warning signal
-- **S&P 500**: Inverse relationship (risk sentiment)
-- **EUR/USD**: Gold priced in USD
-- **Feature ROI**: 47 raw → 80 features = 13% improvement; diminishing returns after 80
-
-## 💻 Development
-
-### Backend
-```bash
-cd backend
-python app.py  # Runs on http://localhost:5000
-```
-
-### Frontend
-```bash
-cd frontend
-npm run dev    # Runs on http://localhost:3000
-```
-
-## 🐛 Troubleshooting
-
-- Backend connection refused → Run `cd backend && python app.py`
-- Missing module → Run `pip install -r requirements.txt`
-- Missing CSV → Copy to `backend/data/raw/financial_regression.csv`
-
-## 📝 Configuration
-
-Edit model hyperparameters in `backend/model_trainer.py`.
-
-## 🎓 Educational Value
-
-Demonstrates:
-- Data engineering & preprocessing
-- Feature engineering & technical indicators
-- ML model training & evaluation
-- API development (Flask)
-- Frontend development (React)
-- Full-stack integration
-
-## ⚠️ Limitations
-
-- Daily data only (no intraday)
-- 2010-2024 period (excludes 2008)
-- Development-level (not production)
-- End-of-day predictions only
-
-## 📊 Dataset
-
-**Financial Regression (2010-2024)**
-- 3,904 daily records
-- 47 raw features (precious metals, stocks, currencies, economic indicators)
-- Target: Gold close price
-
-## 👨‍🎓 Project Status
-
-✅ **Complete & Functional**
-- ✅ 3 trained models
-- ✅ ~80 features
-- ✅ 5 frontend pages
-- ✅ REST API
-- ✅ R² = 0.95-0.97
-- ✅ Professional UI
-
----
-
-**Created**: 2025 | **Platform**: WSL2, Python 3.12, React 18 | **Type**: Student ML Project
-| Random Forest | 0.9XXX | $XX.XX | $XX.XX | X.XX% |
-| Linear Regression | 0.8XXX | $XX.XX | $XX.XX | X.XX% |
-
-### Best Model: [XGBoost/Random Forest]
-
-- **R² Score:** 0.9XXX (explains XX% of variance)
-- **RMSE:** $XX.XX (typical error)
-- **MAE:** $XX.XX (average absolute error)
-- **MAPE:** X.XX% (percentage error)
-
-## Key Insights
-
-1. **All models perform reasonably well** - Even Linear Regression achieves R² > 0.85
-2. **[Best model] outperforms others** - XX% improvement over Linear Regression
-3. **Technical indicators alone are predictive** - Gold's own patterns contain signal
-4. **Baseline established** - Now we can measure impact of adding economic features
-
-## Next Steps
-
-- Add economic indicators (Silver, S&P500, currencies, oil)
-- Compare performance improvement
-- Identify which features matter most
-
----
-- Final model deployment preparation
+The repository includes trained models, generated forecasts for 2025, and a working frontend-backend stack for exploration and visualization.
