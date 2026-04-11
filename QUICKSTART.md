@@ -128,7 +128,7 @@ VITE v5.0.0  ready in XXX ms
 
 ✅ Browser shows:
 - Dashboard with model comparison table
-- Best model highlighted with R² ≈ 0.95+
+- Best model highlighted as Linear Regression (latest run)
 - Dataset statistics (3,904 rows, ~80 features)
 
 ## 🛠️ Alternative: Quick Setup with One Script
@@ -151,7 +151,7 @@ curl http://localhost:5000/api/health
 curl http://localhost:5000/api/models
 
 # Get predictions (first 100)
-curl "http://localhost:5000/api/predictions?model=xgboost&limit=100"
+curl "http://localhost:5000/api/predictions?model=linear_regression&limit=100"
 
 # Get feature importance
 curl "http://localhost:5000/api/feature-importance?model=xgboost&top_n=20"
@@ -164,7 +164,7 @@ curl http://localhost:5000/api/data-stats
 
 ### 1️⃣ Dashboard
 - Model comparison table (Test R², RMSE, MAE)
-- Best model highlight card (XGBoost with R² ≈ 0.95)
+- Best model highlight card (Linear Regression in the latest saved run)
 - Dataset stats (3,904 rows, date range, feature count)
 - Feature categories breakdown
 - Key insights about model performance
@@ -198,28 +198,28 @@ curl http://localhost:5000/api/data-stats
 ### 5️⃣ About
 - Complete methodology (5-step process)
 - ML model explanations:
-  - Linear Regression (baseline)
+  - Linear Regression (current best on latest run)
   - Random Forest (ensemble)
-  - XGBoost (best performance)
+  - XGBoost (boosted tree benchmark)
 - Feature descriptions with economic context
 - Dataset information
 - Technical stack details
 - Results summary
 - Limitations & future improvements
 
-## 🧠 Model Performance Expectations
+## 🧠 Model Performance (Latest Saved Run)
 
-### XGBoost (Best Model)
-- **Training R²**: ~0.97 (excellent fit)
-- **Test R²**: ~0.95 (good generalization)
-- **RMSE**: $20-25/oz (average prediction error)
-- **MAE**: $15-18/oz (mean absolute error)
-- **MAPE**: 1-2% (percentage error)
+### Linear Regression (Best Model)
+- **Training R²**: 0.999981
+- **Test R²**: 0.999952
+- **RMSE**: 0.1554
+- **MAE**: 0.1163
+- **MAPE**: 0.0617%
 
 ### Interpretation
-- Model explains 95% of gold price variance
-- Typical prediction error: ±$20-25
-- Within 1-2% of actual prices
+- Model explains ~99.995% of test variance in this scaled target setup
+- Forecast export is provided in both original scale and converted USD scale
+- Compare with Random Forest/XGBoost test metrics in README for full context
 
 ## 🔧 Customization
 
