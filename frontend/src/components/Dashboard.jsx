@@ -133,7 +133,7 @@ function Dashboard({ models }) {
           {/* Best Model Highlight */}
           {modelComparison.length > 0 && (
             <div className="best-model-card">
-              <h4>🏆 Best Model: {modelComparison[0].model}</h4>
+              <h4>Best Model: {modelComparison[0].model}</h4>
               <div className="best-model-metrics">
                 <div className="metric">
                   <span>R² Score:</span>
@@ -167,7 +167,7 @@ function Dashboard({ models }) {
 
       {/* Key Insights */}
       <section className="dashboard-section insights">
-        <h3>📊 Key Insights</h3>
+        <h3>Key Insights</h3>
         <div className="insights-grid">
           <div className="insight-card">
             <h4>Economic Features Impact</h4>

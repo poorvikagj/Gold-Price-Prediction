@@ -1,443 +1,194 @@
-/* About Styles */
-
-.about {
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.methodology-steps {
+.about .methodology-steps,
+.about .model-explanation,
+.about .features-explained,
+.about .dataset-info,
+.about .tech-stack,
+.about .results-grid,
+.about .future-work {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 1.5rem;
+  gap: 0.95rem;
+  margin-top: 1rem;
 }
 
-.step {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--primary);
+.about .methodology-steps {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.about .step {
   position: relative;
-  transition: transform 0.3s;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--primary);
+  padding: 1rem 1rem 1rem 1.2rem;
 }
 
-body.dark-mode .step {
-  background: #1f2937;
-}
-
-.step:hover {
-  transform: translateY(-4px);
-}
-
-.step-number {
+.about .step-number {
   position: absolute;
-  left: -12px;
-  top: -12px;
-  width: 40px;
-  height: 40px;
-  background: var(--primary);
-  color: white;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-}
-
-.step h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.step p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* Model Explanation */
-.model-explanation {
+  background: var(--primary);
+  color: #fff;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.84rem;
 }
 
-.model-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 2px solid var(--border);
-  border-top: 4px solid var(--primary);
+.about .step p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
 
-body.dark-mode .model-card {
-  background: #1f2937;
-  border-color: #374151;
-}
-
-.model-card h4 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
-.model-role {
-  display: inline-block;
-  background: var(--light);
-  color: var(--primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-body.dark-mode .model-role {
-  background: #111827;
-}
-
-.model-card .description {
-  color: var(--text-light);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.strengths,
-.weaknesses {
-  margin-bottom: 1rem;
-}
-
-.strengths strong,
-.weaknesses strong {
-  color: var(--dark);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.strengths ul,
-.weaknesses ul {
-  margin-left: 1.5rem;
-}
-
-.strengths li,
-.weaknesses li {
-  margin-bottom: 0.5rem;
-  color: var(--text-light);
-  font-size: 0.9rem;
-}
-
-.strengths li:before {
-  content: "✓ ";
-  color: #10b981;
-  font-weight: bold;
-  margin-right: 0.5rem;
-}
-
-.weaknesses li:before {
-  content: "✗ ";
-  color: #ef4444;
-  font-weight: bold;
-  margin-right: 0.5rem;
-}
-
-.why-these-models {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-top: 1.5rem;
-}
-
-body.dark-mode .why-these-models {
-  background: #111827;
-}
-
-.why-these-models h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.why-these-models p {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.why-these-models ul {
-  margin-left: 1.5rem;
-}
-
-.why-these-models li {
-  color: var(--text-light);
-  margin-bottom: 0.75rem;
-}
-
-/* Features Explained */
-.features-explained {
-  display: grid;
+.about .model-explanation {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
-.feature-group {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--accent);
+.about .model-card,
+.about .feature-group,
+.about .dataset-card,
+.about .tech-category,
+.about .result-card,
+.about .limitation {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
 }
 
-body.dark-mode .feature-group {
-  background: #1f2937;
+.about .model-card {
+  border-top: 3px solid var(--primary);
 }
 
-.feature-group h4 {
+.about .model-card h4,
+.about .tech-category h4,
+.about .limitation h4,
+.about .feature-group h4 {
   color: var(--primary);
-  margin-bottom: 0.5rem;
 }
 
-.feature-group p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.feature-group p:first-of-type {
-  font-size: 0.85rem;
-  font-style: italic;
-  margin-bottom: 1rem;
-  color: #8b5cf6;
-}
-
-/* Dataset Info */
-.dataset-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.dataset-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+.about .model-role {
+  display: inline-block;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--secondary);
-}
-
-body.dark-mode .dataset-card {
-  background: #1f2937;
-}
-
-.dataset-card h4 {
-  color: var(--secondary);
-  margin-bottom: 1rem;
-}
-
-.dataset-card ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.dataset-card li {
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.dataset-card li strong {
-  color: var(--dark);
-}
-
-.dataset-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* Tech Stack */
-.tech-stack {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.tech-category {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-body.dark-mode .tech-category {
-  background: #1f2937;
-}
-
-.tech-category h4 {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary-soft) 70%, var(--surface));
   color: var(--primary);
-  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  padding: 0.2rem 0.58rem;
+  margin: 0.25rem 0 0.65rem;
 }
 
-.tech-category ul {
-  margin-left: 1.5rem;
+.about .model-card .description,
+.about .feature-group p,
+.about .dataset-card p,
+.about .result-card p,
+.about .limitation li,
+.about .tech-category li,
+.about .why-these-models p,
+.about .result-card ol {
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
 
-.tech-category li {
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+.about .strengths strong,
+.about .weaknesses strong,
+.about .dataset-card li strong,
+.about .result-metric strong,
+.about .limitation li strong,
+.about .feature-group strong,
+.about .why-these-models strong,
+.about .credits strong {
+  color: var(--text);
 }
 
-/* Results Grid */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+.about .strengths ul,
+.about .weaknesses ul,
+.about .why-these-models ul,
+.about .dataset-card ul,
+.about .tech-category ul,
+.about .limitation ul,
+.about .result-card ol {
+  margin-left: 1.2rem;
 }
 
-.result-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+.about .strengths li,
+.about .weaknesses li,
+.about .why-these-models li,
+.about .dataset-card li,
+.about .tech-category li,
+.about .limitation li,
+.about .result-card li {
+  margin-bottom: 0.45rem;
+}
+
+.about .strengths li::marker {
+  color: var(--success);
+}
+
+.about .weaknesses li::marker {
+  color: var(--danger);
+}
+
+.about .why-these-models {
+  margin-top: 1rem;
   border: 1px solid var(--border);
-  border-top: 4px solid var(--secondary);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  padding: 1rem;
 }
 
-body.dark-mode .result-card {
-  background: #1f2937;
+.about .features-explained {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.result-card h4 {
-  color: var(--secondary);
-  margin-bottom: 1rem;
+.about .feature-group {
+  border-left: 3px solid var(--accent);
 }
 
-.result-metric {
+.about .feature-group p:first-of-type {
+  font-size: 0.83rem;
+  color: var(--primary);
+}
+
+.about .dataset-info,
+.about .tech-stack,
+.about .results-grid,
+.about .future-work {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.about .dataset-card {
+  border-left: 3px solid var(--success);
+}
+
+.about .result-card {
+  border-top: 3px solid var(--accent);
+}
+
+.about .result-metric {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
+  gap: 0.8rem;
   border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
-.result-metric span {
-  color: var(--text-light);
+.about .result-metric span {
+  color: var(--text-muted);
 }
 
-.result-metric strong {
-  color: var(--primary);
-  font-weight: bold;
+.about .future-work {
+  margin-top: 1rem;
 }
 
-.result-card ol,
-.result-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.9rem;
-}
-
-.result-card ol {
-  margin-left: 1.5rem;
-}
-
-.result-card li {
+.about .credits p {
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
-}
-
-/* Future Work */
-.future-work {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.limitation {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-body.dark-mode .limitation {
-  background: #1f2937;
-}
-
-.limitation h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.limitation ul {
-  margin-left: 1.5rem;
-}
-
-.limitation li {
-  color: var(--text-light);
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
-
-.limitation li strong {
-  color: var(--dark);
-}
-
-/* Credits */
-.credits {
-  background: var(--light);
-  text-align: center;
-}
-
-body.dark-mode .credits {
-  background: #111827;
-}
-
-.credits p {
-  margin-bottom: 0.75rem;
-  color: var(--text-light);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .methodology-steps {
-    grid-template-columns: 1fr;
-  }
-
-  .model-explanation {
-    grid-template-columns: 1fr;
-  }
-
-  .features-explained {
-    grid-template-columns: 1fr;
-  }
-
-  .dataset-info {
-    grid-template-columns: 1fr;
-  }
-
-  .tech-stack {
-    grid-template-columns: 1fr;
-  }
-
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .future-work {
-    grid-template-columns: 1fr;
-  }
 }

@@ -177,7 +177,7 @@ function About() {
 
         <div className="features-explained">
           <div className="feature-group">
-            <h4>🥈 Silver (Precious Metal)</h4>
+            <h4>Silver (Precious Metal)</h4>
             <p>
               <strong>Correlation:</strong> 0.85+ with gold | <strong>Lead indicator:</strong> Often moves first
             </p>
@@ -188,7 +188,7 @@ function About() {
           </div>
 
           <div className="feature-group">
-            <h4>📈 S&P 500 (Equity Market)</h4>
+            <h4>S&P 500 (Equity Market)</h4>
             <p>
               <strong>Relationship:</strong> Inverse (risk-on vs risk-off) | <strong>Sentiment indicator</strong>
             </p>
@@ -199,7 +199,7 @@ function About() {
           </div>
 
           <div className="feature-group">
-            <h4>💱 EUR/USD (Currency)</h4>
+            <h4>EUR/USD (Currency)</h4>
             <p>
               <strong>Key factor:</strong> Gold priced in USD | <strong>Commodity currency</strong>
             </p>
@@ -210,7 +210,7 @@ function About() {
           </div>
 
           <div className="feature-group">
-            <h4>⛽ Oil (Energy/Inflation)</h4>
+            <h4>Oil (Energy/Inflation)</h4>
             <p>
               <strong>Shared factor:</strong> Inflation expectations | <strong>Industry demand</strong>
             </p>
@@ -221,7 +221,7 @@ function About() {
           </div>
 
           <div className="feature-group">
-            <h4>📊 Technical Indicators</h4>
+            <h4>Technical Indicators</h4>
             <p>
               <strong>RSI, MACD, Bollinger Bands:</strong> Market sentiment and momentum
             </p>

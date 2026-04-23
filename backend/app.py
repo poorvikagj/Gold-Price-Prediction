@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import logging
 from sklearn.isotonic import IsotonicRegression
+from pandas.tseries.offsets import BDay
 
 from data_loader import GoldDataLoader
 from feature_engineering import FeatureEngineer
@@ -408,7 +409,7 @@ def get_forecast():
     """Get current and future recursive forecasts for a selected model."""
     try:
         model_id = request.args.get('model', 'linear_regression')
-        horizon = request.args.get('horizon', 90, type=int)
+        horizon = request.args.get('horizon', 180, type=int)
         horizon = max(1, min(horizon, 180))
 
         if model_id not in trainer.models:
@@ -441,8 +442,8 @@ def get_forecast():
         # Recursive multi-step forecast.
         history = df_full[target_col].tail(120).astype(float).tolist()
         last_date = pd.Timestamp(df_full[date_col].iloc[-1])
-        start_date = last_date + pd.Timedelta(days=1)
-        forecast_days = pd.date_range(start=start_date, periods=horizon, freq='D')
+        start_date = last_date + BDay(1)
+        forecast_days = pd.date_range(start=start_date, periods=horizon, freq='B')
 
         future = []
         rolling_features = base_features.copy()
@@ -462,7 +463,11 @@ def get_forecast():
             })
             history.append(prediction)
 
-        rmse = trainer.metrics.get(model_id, {}).get('test', {}).get('rmse', 0.0)
+        rmse = float(trainer.metrics.get(model_id, {}).get('test', {}).get('rmse', 0.0))
+        # RMSE is in model-original units. Convert to an approximate USD band at the current prediction.
+        high_usd = float(_to_usd(np.array([current_prediction + rmse]))[0])
+        low_usd = float(_to_usd(np.array([current_prediction - rmse]))[0])
+        rmse_usd = abs(high_usd - low_usd) / 2.0
 
         return jsonify({
             'success': True,
@@ -477,7 +482,8 @@ def get_forecast():
             'forecast_start_date': start_date.strftime('%Y-%m-%d'),
             'forecast': future,
             'uncertainty_band': {
-                'plus_minus_rmse': float(rmse),
+                'plus_minus_rmse': rmse_usd,
+                'plus_minus_rmse_original': rmse,
             },
         }), 200
 

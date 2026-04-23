@@ -31,7 +31,7 @@ const apiService = {
     return response.data;
   },
 
-  getForecast: async (modelId = 'linear_regression', horizon = 90) => {
+  getForecast: async (modelId = 'linear_regression', horizon = 180) => {
     const response = await api.get('/forecast', {
       params: { model: modelId, horizon },
     });

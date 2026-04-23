@@ -10,7 +10,7 @@ function Predictions({ models }) {
   const [error, setError] = useState(null);
   const [forecast, setForecast] = useState([]);
   const [forecastMeta, setForecastMeta] = useState(null);
-  const horizon = 90;
+  const horizon = 180;
 
   useEffect(() => {
     if (!models || models.length === 0) return;
@@ -32,7 +32,7 @@ function Predictions({ models }) {
           setForecastMeta(forecastRes);
         }
       } catch (err) {
-        setError('Failed to load 90-day forecast');
+        setError('Failed to load 180-day forecast');
         console.error('Failed to load forecast:', err);
       } finally {
         setLoading(false);
@@ -89,11 +89,11 @@ function Predictions({ models }) {
 
         <div className="control-group">
           <label>Forecast Horizon:</label>
-          <strong>90 days</strong>
+          <strong>180 days</strong>
         </div>
 
         <button onClick={downloadPredictions} className="button-secondary">
-          📥 Download as CSV
+          Download as CSV
         </button>
       </div>
 
@@ -112,7 +112,7 @@ function Predictions({ models }) {
       {/* Current and Future Forecast */}
       {forecast.length > 0 && forecastMeta && (
         <section className="predictions-section">
-          <h3>Next 90 Days Forecast (From Dataset End Date)</h3>
+          <h3>Next 180 Days Forecast (From Dataset End Date)</h3>
           <p className="chart-help">Forecast starts from {forecastMeta.forecast_start_date} and shows prediction values in {forecastMeta.price_unit || PRICE_UNIT}.</p>
           <div className="stats-grid">
             <div className="stat-card">
@@ -129,7 +129,9 @@ function Predictions({ models }) {
             </div>
             <div className="stat-card">
               <div className="stat-label">Uncertainty (±RMSE)</div>
-              <div className="stat-value">{forecastMeta.uncertainty_band.plus_minus_rmse.toFixed(2)}</div>
+              <div className="stat-value">
+                ${((forecastMeta.uncertainty_band?.plus_minus_rmse ?? 0)).toFixed(2)}
+              </div>
             </div>
           </div>
 

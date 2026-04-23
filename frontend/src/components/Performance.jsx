@@ -279,7 +279,7 @@ function Performance({ models }) {
 
       {/* Performance Insights */}
       <section className="performance-section insights">
-        <h3>📈 Performance Insights</h3>
+        <h3>Performance Insights</h3>
         <div className="insight-grid">
           <div className="insight-card">
             <h4>Model Selection Criterion</h4>

@@ -15,8 +15,8 @@ function Navigation({ currentPage, onPageChange, isDarkMode, onDarkModeToggle })
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <h1>🪙 Gold Price Prediction</h1>
-          <p className="tagline">ML-Powered Economic Analysis</p>
+          <h1>Gold Price Intelligence</h1>
+          <p className="tagline">Forecasting Workspace for Economic Signals</p>
         </div>
         
         <ul className="nav-links">
@@ -118,7 +118,7 @@ function App() {
           onDarkModeToggle={() => setIsDarkMode(!isDarkMode)}
         />
         <div className="error-container">
-          <h2>⚠️ Error</h2>
+          <h2>Error</h2>
           <p>{error}</p>
         </div>
       </div>
@@ -143,7 +143,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; 2025 Gold Price Prediction Project | Student ML Project</p>
+        <p>&copy; 2026 Gold Price Intelligence | Built for Applied ML Analysis</p>
       </footer>
     </div>
   );

@@ -1,211 +1,132 @@
-/* Feature Analysis Styles */
-
-.feature-analysis {
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Charts */
-.category-charts {
+.feature-analysis .category-charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 1.5rem;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1rem;
   align-items: center;
 }
 
-.pie-chart-container {
-  background: var(--light);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-body.dark-mode .pie-chart-container {
-  background: #111827;
-}
-
-.category-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.category-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 6px;
+.feature-analysis .pie-chart-container {
   border: 1px solid var(--border);
-  transition: transform 0.3s;
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
 }
 
-body.dark-mode .category-item {
-  background: #1f2937;
+.feature-analysis .category-list {
+  display: grid;
+  gap: 0.65rem;
 }
 
-.category-item:hover {
-  transform: translateX(4px);
+.feature-analysis .category-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-elevated);
+  padding: 0.75rem;
 }
 
-.category-color {
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  flex-shrink: 0;
+.feature-analysis .category-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--surface) 40%, transparent);
 }
 
-.category-info h4 {
+.feature-analysis .category-info h4 {
   margin: 0;
-  margin-bottom: 0.25rem;
+  font-size: 0.92rem;
+  color: var(--text);
 }
 
-.category-info p {
-  margin: 0;
-  color: var(--text-light);
+.feature-analysis .category-info p {
+  margin: 0.16rem 0 0;
+  color: var(--text-muted);
   font-size: 0.85rem;
 }
 
-/* Feature Descriptions */
-.feature-descriptions {
+.feature-analysis .feature-descriptions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 0.95rem;
 }
 
-.description-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
+.feature-analysis .description-card {
   border: 1px solid var(--border);
-  border-left: 4px solid var(--primary);
+  border-top: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  background: var(--surface-elevated);
+  padding: 1.1rem;
 }
 
-body.dark-mode .description-card {
-  background: #1f2937;
-  border-color: #374151;
-}
-
-.description-card h4 {
+.feature-analysis .description-card h4 {
   color: var(--primary);
-  margin-bottom: 1rem;
 }
 
-.description-card ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
+.feature-analysis .description-card ul,
+.feature-analysis .economic-explanation ul {
+  margin-left: 1.2rem;
 }
 
-.description-card li {
-  margin-bottom: 0.75rem;
-  color: var(--text-light);
-  line-height: 1.5;
+.feature-analysis .description-card li,
+.feature-analysis .economic-explanation li {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
 }
 
-.description-card strong {
-  color: var(--dark);
+.feature-analysis .description-card strong,
+.feature-analysis .economic-explanation strong {
+  color: var(--text);
 }
 
-.economic-note {
-  background: var(--light);
-  padding: 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--text-light);
+.feature-analysis .economic-note,
+.feature-analysis .economic-explanation {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  padding: 0.85rem;
+  color: var(--text-muted);
 }
 
-body.dark-mode .economic-note {
-  background: #111827;
-}
-
-.economic-explanation {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-body.dark-mode .economic-explanation {
-  background: #111827;
-}
-
-.economic-explanation h5 {
+.feature-analysis .economic-explanation h5 {
   color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.economic-explanation ul {
-  margin-left: 1.5rem;
-}
-
-.economic-explanation li {
   margin-bottom: 0.75rem;
-  color: var(--text-light);
-  line-height: 1.6;
 }
 
-/* Impact Cards */
-.impact-cards {
+.feature-analysis .impact-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 0.9rem;
 }
 
-.impact-card {
-  background: linear-gradient(135deg, var(--light) 0%, rgba(255, 255, 255, 0.5) 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 2px solid var(--border);
-  text-align: center;
+.feature-analysis .impact-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: linear-gradient(152deg, var(--surface), var(--surface-elevated));
+  padding: 1rem;
 }
 
-body.dark-mode .impact-card {
-  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-  border-color: #374151;
-}
-
-.impact-card h4 {
-  margin-bottom: 1rem;
-  color: var(--dry);
-}
-
-.impact-card .metric {
-  font-size: 2rem;
-  font-weight: bold;
+.feature-analysis .impact-card h4 {
   color: var(--primary);
-  margin: 1rem 0;
+  min-height: 2.2rem;
 }
 
-.impact-card p {
-  color: var(--text-light);
+.feature-analysis .impact-card .metric {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 1.45rem;
+  margin: 0.6rem 0;
+}
+
+.feature-analysis .impact-card p {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  line-height: 1.5;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .category-charts {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-descriptions {
-    grid-template-columns: 1fr;
-  }
-
-  .impact-cards {
+  .feature-analysis .category-charts {
     grid-template-columns: 1fr;
   }
 }
