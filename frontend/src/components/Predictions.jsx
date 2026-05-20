@@ -130,7 +130,7 @@ function Predictions({ models }) {
             <div className="stat-card">
               <div className="stat-label">Uncertainty (±RMSE)</div>
               <div className="stat-value">
-                ${((forecastMeta.uncertainty_band?.plus_minus_rmse ?? 0)).toFixed(2)}
+                {((forecastMeta.uncertainty_band?.plus_minus_rmse ?? 0)).toFixed(2)}
               </div>
             </div>
           </div>

@@ -1,0 +1,81 @@
+{
+  "timestamp": "20260430_064146",
+  "results": {
+    "linear_regression": {
+      "regression_metrics": {
+        "rmse": 0.15538385237357402,
+        "mae": 0.11630122030283974,
+        "r2": 0.9999519894889806,
+        "mape": 0.000617134846512514
+      },
+      "direction_accuracy": 0.948051948051948,
+      "confusion_matrix": [
+        [
+          351,
+          37
+        ],
+        [
+          3,
+          379
+        ]
+      ],
+      "roc_auc": 0.9964376315647433,
+      "plots": {
+        "predictions": "/home/poorvi/gold-price-prediction/backend/reports/pred_vs_actual_linear_regression_20260430_064146.png",
+        "residuals": "/home/poorvi/gold-price-prediction/backend/reports/residuals_linear_regression_20260430_064146.png",
+        "roc": "/home/poorvi/gold-price-prediction/backend/reports/roc_linear_regression_20260430_064146.png"
+      }
+    },
+    "random_forest": {
+      "regression_metrics": {
+        "rmse": 16.832837721362964,
+        "mae": 7.758141576957777,
+        "r2": 0.43657095321627626,
+        "mape": 0.03470591993384504
+      },
+      "direction_accuracy": 0.7610389610389611,
+      "confusion_matrix": [
+        [
+          324,
+          64
+        ],
+        [
+          120,
+          262
+        ]
+      ],
+      "roc_auc": 0.7448925891941491,
+      "plots": {
+        "predictions": "/home/poorvi/gold-price-prediction/backend/reports/pred_vs_actual_random_forest_20260430_064146.png",
+        "residuals": "/home/poorvi/gold-price-prediction/backend/reports/residuals_random_forest_20260430_064146.png",
+        "roc": "/home/poorvi/gold-price-prediction/backend/reports/roc_random_forest_20260430_064146.png"
+      }
+    },
+    "xgboost": {
+      "regression_metrics": {
+        "rmse": 144.4768526208656,
+        "mae": 143.59221147322003,
+        "r2": -40.50697693784278,
+        "mape": 0.7765772515530266
+      },
+      "direction_accuracy": 0.5038961038961038,
+      "confusion_matrix": [
+        [
+          388,
+          0
+        ],
+        [
+          382,
+          0
+        ]
+      ],
+      "roc_auc": 0.6958223133804717,
+      "plots": {
+        "predictions": "/home/poorvi/gold-price-prediction/backend/reports/pred_vs_actual_xgboost_20260430_064146.png",
+        "residuals": "/home/poorvi/gold-price-prediction/backend/reports/residuals_xgboost_20260430_064146.png",
+        "roc": "/home/poorvi/gold-price-prediction/backend/reports/roc_xgboost_20260430_064146.png"
+      }
+    }
+  },
+  "correlation_plot": "/home/poorvi/gold-price-prediction/backend/reports/correlation_matrix_20260430_064146.png"
+}
